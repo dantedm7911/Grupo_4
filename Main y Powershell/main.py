@@ -9,11 +9,16 @@ def ejecutar_comando(bash_comando):
         print(f"Error al ejecutar el comando: {e}")
 
 # Función para ejecutar los scripts de PowerShell
-def ejecutar_comando_powershell(ps_comando):
+def ejecutar_comando_powershell(ps_comando, ruta=None):
     try:
-        subprocess.run(["powershell", "-ExecutionPolicy", "ByPass", "-file", ps_comando], check=True)
+        # Si se pasa una ruta, se agrega al comando
+        if ruta:
+            subprocess.run(["powershell", "-ExecutionPolicy", "ByPass", "-file", ps_comando, "-path", ruta], check=True)
+        else:
+            subprocess.run(["powershell", "-ExecutionPolicy", "ByPass", "-file", ps_comando], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error al ejecutar el comando de PowerShell: {e}")
+
 
 def main():
     parser = argparse.ArgumentParser(description="Scripts en Powerhsell, Bash y Python de analisis de ciberseguridad.") 
@@ -27,7 +32,7 @@ def main():
 
     # Argumentos para PowerShell
     parser.add_argument("--hashes", action="store_true", help="Crea hashes y los analiza.")
-    parser.add_argument("--oculto", action="store_true", help="Busca archivos ocultos.")
+    parser.add_argument("--oculto", type=str, help="Busca archivos ocultos en la ruta especificada.")
     parser.add_argument("--recursos", action="store_true", help="Registra los recursos del sistema usados.")
     parser.add_argument("--proceso", action="store_true", help="Busca los procesos con mas recursos usados.")
 
@@ -56,8 +61,9 @@ def main():
         ejecutar_comando_powershell(".\\API_VIRUSTOTAL_2.ps1")
     
     if args.oculto:
-        print("Buscando archivos ocultos...")
-        ejecutar_comando_powershell(".\\BuscarArchivosOcultos.ps1")
+        print(f"Buscando archivos ocultos en {args.oculto}...")
+        ejecutar_comando_powershell(".\\BuscarArchivosOcultos.ps1", args.oculto)
+
     
     if args.recursos:
         print("Registrando recursos...")
@@ -72,3 +78,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
