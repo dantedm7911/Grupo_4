@@ -10,12 +10,25 @@
    Fecha: 12/09/2024
 #>
 
+<#
+.SYNOPSIS
+   Muestra los archivos ocultos en una ruta especificada.
+.DESCRIPTION
+   La funcion recibe una ruta ingresada por el usuario y muestra todos los archivos ocultos en esa ruta.
+.PARAMETER None
+   La función no recibe parametros, pero solicita al usuario que ingrese una ruta.
+.NOTES
+   Autor: TeyssiHM
+   Fecha: 12/09/2024
+#>
+
+param (
+    [string]$path  # Definir el parámetro para la ruta
+)
+
 function Get-HiddenFiles {
     Set-StrictMode -Version Latest
     
-    # Pedir la ruta al usuario
-    $path = Read-Host "Enter the path to your folder to see hidden files"
-
     # Crear el nombre del archivo con la fecha y hora actuales
     $fileName = "$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').txt"
     $filePath = Join-Path -Path $PWD -ChildPath $fileName
@@ -57,6 +70,9 @@ function Get-HiddenFiles {
     Write-Host "La información de archivos ocultos se guardó en: $filePath"
 }
 
-# Llamar a la función
-Get-HiddenFiles
-
+# Llamar a la función pasando el parámetro $path
+if ($path) {
+    Get-HiddenFiles -path $path
+} else {
+    Write-Host "No se proporcionó una ruta. El script no se ejecuta."
+}
