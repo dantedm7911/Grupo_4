@@ -43,7 +43,7 @@ def main():
     parser.add_argument("--recursos", action="store_true", help="Registra los recursos del sistema usados.")
     parser.add_argument("--proceso", action="store_true", help="Busca los procesos con mas recursos usados.")
 
-    # Argumentos para Python      CAMBIAR NOMBRES
+    # Argumentos para Python      
     parser.add_argument("--password", action="store_true", help="Ejecuta un Generador de Contraseñas.")
     parser.add_argument("--shodan", action="store_true", help="Escanea informacion de una IP mediante Api shodan.")
     parser.add_argument("--malware", action="store_true", help="Escanea un directorio en busca de malware.")
@@ -87,28 +87,32 @@ def main():
         print("Detectando procesos...")
         ejecutar_comando_powershell(".\\TopProcess.ps1")   
 
-    # Verificar las opciones seleccionadas para Python  CAMBIAR NOMBRES 
-    if args.analisis:
-        print("Ejecutando análisis de malware...")
-        ejecutar_comando_python("analisis_malware.py")
+    # Verificar las opciones seleccionadas para Python  
+    if args.password:
+        print("Generando contraseña...")
+        ejecutar_comando_python("password.py")
     
-    if args.puertos:
-        print("Escaneando puertos abiertos...")
-        ejecutar_comando_python("escaneo_puertos.py")
+    if args.shodan:
+        print("Escaneando IP con shodan...")
+        ejecutar_comando_python("shodan.py")
     
-    if args.vulnerabilidades:
-        print("Buscando vulnerabilidades conocidas...")
-        ejecutar_comando_python("buscar_vulnerabilidades.py")
+    if args.malware:
+        print("Escaneando malware...")
+        ejecutar_comando_python("malware.py")
     
-    if args.hashcheck:
-        print("Verificando integridad de archivos...")
-        ejecutar_comando_python("verificar_hashes.py")
+    if args.abuse:
+        print("Verificando reportes de IP...")
+        ejecutar_comando_python("abuse.py")
+
+     if args.red:
+        print("Verificando trafico de red en tiempo real...")
+        ejecutar_comando_python("red.py")
         
     
-   # Mensaje de error si no se seleccionó ninguna opción CAMBIAR NOMBRES 
+   # Mensaje de error si no se seleccionó ninguna opción 
     if not (args.monitoreo or args.trafico or args.escaneo or args.rendimiento or 
             args.hashes or args.oculto or args.recursos or args.proceso or 
-            args.analisis or args.puertos or args.vulnerabilidades or args.hashcheck):
+            args.password or args.shodan or args.malware or args.abuse or args.red):
         print("Error: No se seleccionó ninguna opción válida. Usa --help para más detalles.")
 
 if __name__ == "__main__":
