@@ -2,9 +2,9 @@ import argparse
 import subprocess
 
 # Función para ejecutar los scripts de Bash correspondientes
-def ejecutar_comando(bash_comando):
+def ejecutar_comando(bash_comando):   #AGREGAR PARAMETROS DE CADA OPCION? 
     try:
-        subprocess.run(bash_comando, shell=True, check=True)
+        subprocess.run(bash_comando, shell=True, check=True)    
     except subprocess.CalledProcessError as e:
         print(f"Error al ejecutar el comando: {e}")
 
@@ -20,7 +20,7 @@ def ejecutar_comando_powershell(ps_comando, ruta=None):
         print(f"Error al ejecutar el comando de PowerShell: {e}")
 
 # Función para ejecutar los scripts de Python
-def ejecutar_comando_python(py_comando):
+def ejecutar_comando_python(py_comando): #AGREGAR PARAMETROS DE CADA OPCION 
     try:
         subprocess.run(["python", py_comando], check=True)
     except subprocess.CalledProcessError as e:
@@ -42,6 +42,12 @@ def main():
     parser.add_argument("--oculto", type=str, help="Busca archivos ocultos en la ruta especificada.")
     parser.add_argument("--recursos", action="store_true", help="Registra los recursos del sistema usados.")
     parser.add_argument("--proceso", action="store_true", help="Busca los procesos con mas recursos usados.")
+
+    # Argumentos para Python      CAMBIAR NOMBRES
+    parser.add_argument("--analisis", action="store_true", help="Ejecuta un análisis de malware en Python.")
+    parser.add_argument("--puertos", action="store_true", help="Escanea los puertos abiertos con Python.")
+    parser.add_argument("--vulnerabilidades", action="store_true", help="Busca vulnerabilidades conocidas en Python.")
+    parser.add_argument("--hashcheck", action="store_true", help="Verifica la integridad de archivos con hashes en Python.")
 
     args = parser.parse_args()
     
@@ -79,8 +85,29 @@ def main():
     if args.proceso:
         print("Detectando procesos...")
         ejecutar_comando_powershell(".\\TopProcess.ps1")   
+
+    # Verificar las opciones seleccionadas para Python  CAMBIAR NOMBRES 
+    if args.analisis:
+        print("Ejecutando análisis de malware...")
+        ejecutar_comando_python("analisis_malware.py")
     
-    if not (args.monitoreo or args.trafico or args.escaneo or args.rendimiento or args.hashes or args.oculto or args.recursos or args.proceso ):  #AGREGAR LAS DE PY
+    if args.puertos:
+        print("Escaneando puertos abiertos...")
+        ejecutar_comando_python("escaneo_puertos.py")
+    
+    if args.vulnerabilidades:
+        print("Buscando vulnerabilidades conocidas...")
+        ejecutar_comando_python("buscar_vulnerabilidades.py")
+    
+    if args.hashcheck:
+        print("Verificando integridad de archivos...")
+        ejecutar_comando_python("verificar_hashes.py")
+        
+    
+   # Mensaje de error si no se seleccionó ninguna opción CAMBIAR NOMBRES 
+    if not (args.monitoreo or args.trafico or args.escaneo or args.rendimiento or 
+            args.hashes or args.oculto or args.recursos or args.proceso or 
+            args.analisis or args.puertos or args.vulnerabilidades or args.hashcheck):
         print("Error: No se seleccionó ninguna opción válida. Usa --help para más detalles.")
 
 if __name__ == "__main__":
