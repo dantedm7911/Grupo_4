@@ -19,6 +19,13 @@ def ejecutar_comando_powershell(ps_comando, ruta=None):
     except subprocess.CalledProcessError as e:
         print(f"Error al ejecutar el comando de PowerShell: {e}")
 
+# Función para ejecutar los scripts de Python
+def ejecutar_comando_python(py_comando):
+    try:
+        subprocess.run(["python", py_comando], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error al ejecutar el comando de Python: {e}")
+
 
 def main():
     parser = argparse.ArgumentParser(description="Scripts en Powerhsell, Bash y Python de analisis de ciberseguridad.") 
