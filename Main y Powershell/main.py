@@ -104,7 +104,7 @@ def main():
         print("Verificando reportes de IP...")
         ejecutar_comando_python("abuse.py")
 
-     if args.red:
+    if args.red:
         print("Verificando trafico de red en tiempo real...")
         ejecutar_comando_python("red.py")
         
