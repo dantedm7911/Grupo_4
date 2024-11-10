@@ -44,11 +44,12 @@ def main():
     parser.add_argument("--proceso", action="store_true", help="Busca los procesos con mas recursos usados.")
 
     # Argumentos para Python      CAMBIAR NOMBRES
-    parser.add_argument("--analisis", action="store_true", help="Ejecuta un análisis de malware en Python.")
-    parser.add_argument("--puertos", action="store_true", help="Escanea los puertos abiertos con Python.")
-    parser.add_argument("--vulnerabilidades", action="store_true", help="Busca vulnerabilidades conocidas en Python.")
-    parser.add_argument("--hashcheck", action="store_true", help="Verifica la integridad de archivos con hashes en Python.")
-
+    parser.add_argument("--password", action="store_true", help="Ejecuta un Generador de Contraseñas.")
+    parser.add_argument("--shodan", action="store_true", help="Escanea informacion de una IP mediante Api shodan.")
+    parser.add_argument("--malware", action="store_true", help="Escanea un directorio en busca de malware.")
+    parser.add_argument("--abuse", action="store_true", help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse.")
+    parser.add_argument("--red", action="store_true", help="Permite monitorear en Tiempo Real el trafico de tu red.")
+    
     args = parser.parse_args()
     
     # Verificar las opciones seleccionadas
