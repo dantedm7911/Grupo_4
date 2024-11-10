@@ -55,58 +55,58 @@ def main():
     # Verificar las opciones seleccionadas
     if args.monitoreo:
         print("Ejecutando monitoreo de ancho de banda...")
-        ejecutar_comando("bash monitoreo.sh")
+        ejecutar_comando("bash bash/monitoreo.sh")
     
     if args.trafico:
         print("Registrando tráfico de red...")
-        ejecutar_comando("bash trafico_red.sh")
+        ejecutar_comando("bash bash/trafico_red.sh")
     
     if args.escaneo:
         print("Detectando dispositivos en la red...")
-        ejecutar_comando("bash escaneo.sh")
+        ejecutar_comando("bash bash/escaneo.sh")
     
     if args.rendimiento:
         print("Analizando rendimiento de la red...")
-        ejecutar_comando("bash rendimiento.sh")
+        ejecutar_comando("bash bash/rendimiento.sh")
 
     # Verificar las opciones seleccionadas para PowerShell
     if args.hashes:
         print("Analizando hashes...")
-        ejecutar_comando_powershell(".\\API_VIRUSTOTAL_2.ps1")
+        ejecutar_comando_powershell("powershell/API_VIRUSTOTAL_2.ps1")
     
     if args.oculto:
         print(f"Buscando archivos ocultos en {args.oculto}...")
-        ejecutar_comando_powershell(".\\BuscarArchivosOcultos.ps1", args.oculto)
+        ejecutar_comando_powershell("powershell/BuscarArchivosOcultos.ps1", args.oculto)
 
     
     if args.recursos:
         print("Registrando recursos...")
-        ejecutar_comando_powershell(".\\Recursos.ps1")
+        ejecutar_comando_powershell("powershell/Recursos.ps1")
     
     if args.proceso:
         print("Detectando procesos...")
-        ejecutar_comando_powershell(".\\TopProcess.ps1")   
+        ejecutar_comando_powershell("powershell/TopProcess.ps1")   
 
     # Verificar las opciones seleccionadas para Python  
     if args.password:
         print("Generando contraseña...")
-        ejecutar_comando_python("password.py")
+        ejecutar_comando_python("python/password.py")
     
     if args.shodan:
         print("Escaneando IP con shodan...")
-        ejecutar_comando_python("shodan.py")
+        ejecutar_comando_python("python/shodan.py")
     
     if args.malware:
         print("Escaneando malware...")
-        ejecutar_comando_python("malware.py")
+        ejecutar_comando_python("python/malware.py")
     
     if args.abuse:
         print("Verificando reportes de IP...")
-        ejecutar_comando_python("abuse.py")
+        ejecutar_comando_python("python/abuse.py")
 
     if args.red:
         print("Verificando trafico de red en tiempo real...")
-        ejecutar_comando_python("red.py")
+        ejecutar_comando_python("python/red.py")
         
     
    # Mensaje de error si no se seleccionó ninguna opción 
