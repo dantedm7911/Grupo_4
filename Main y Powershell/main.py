@@ -45,7 +45,7 @@ def main():
 
     # Argumentos para Python      
     parser.add_argument("--password", action="store_true", help="Ejecuta un Generador de Contraseñas.")
-    parser.add_argument("--shodan", action="store_true", help="Escanea informacion de una IP mediante Api shodan.")
+    parser.add_argument("--ipshodan", action="store_true", help="Escanea informacion de una IP mediante Api shodan.")
     parser.add_argument("--malware", action="store_true", help="Escanea un directorio en busca de malware.")
     parser.add_argument("--abuse", action="store_true", help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse.")
     parser.add_argument("--red", action="store_true", help="Permite monitorear en Tiempo Real el trafico de tu red.")
@@ -92,9 +92,9 @@ def main():
         print("Generando contraseña...")
         ejecutar_comando_python("python/password.py")
     
-    if args.shodan:
+    if args.ipshodan:
         print("Escaneando IP con shodan...")
-        ejecutar_comando_python("python/shodan.py")
+        ejecutar_comando_python("python/ipshodan.py")
     
     if args.malware:
         print("Escaneando malware...")
@@ -112,7 +112,7 @@ def main():
    # Mensaje de error si no se seleccionó ninguna opción 
     if not (args.monitoreo or args.trafico or args.escaneo or args.rendimiento or 
             args.hashes or args.oculto or args.recursos or args.proceso or 
-            args.password or args.shodan or args.malware or args.abuse or args.red):
+            args.password or args.ipshodan or args.malware or args.abuse or args.red):
         print("Error: No se seleccionó ninguna opción válida. Usa --help para más detalles.")
 
 if __name__ == "__main__":
