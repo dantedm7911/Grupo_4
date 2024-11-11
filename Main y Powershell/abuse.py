@@ -19,13 +19,7 @@ def analizar_ip(api_key, ip_address):
 
     if response.status_code == 200:
         data = response.json()
-        print("\nInformación sobre la IP:")
-        print(f"Dirección IP: {data['data']['ipAddress']}")
-        print(f"País: {data['data']['countryCode']}")
-        print(f"Reportes: {data['data']['totalReports']}")
-        print(f"Última actividad maliciosa: {data['data']['lastReportedAt']}")
-        print(f"Score de abuso: {data['data']['abuseConfidenceScore']}")
-
+        
         try:
             if not os.path.exists("Reportes_de_Consulta_API"):
                 os.makedirs("Reportes_de_Consulta_API")
@@ -39,6 +33,9 @@ def analizar_ip(api_key, ip_address):
                 file.write(f"Score de abuso: {data['data']['abuseConfidenceScore']}\n")
                 file.write(f"Fecha: {date.today()} Hora: {datetime.now().strftime('%H:%M:%S')} \n")
                 file.write("================================\n\n")
+
+            print(f"Informacion guardad exitosamente en el reporte Abuse_API.txt en la carpeta Reportes_de_Consulta_API")
+            
         except Exception as e:
             print(f"Error al escribir el reporte: {e}")
     else:
