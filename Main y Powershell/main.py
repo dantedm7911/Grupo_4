@@ -30,7 +30,7 @@ def ejecutar_comando_python(py_comando): #AGREGAR PARAMETROS DE CADA OPCION
 def main():
     parser = argparse.ArgumentParser(description="Scripts en Powerhsell, Bash y Python de analisis de ciberseguridad.") 
     
-    # Argumentos
+    # Argumentos para bash
     parser.add_argument("--monitoreo", action="store_true", help="Iniciar monitoreo de ancho de banda.")
     parser.add_argument("--trafico", action="store_true", help="Registrar tráfico de red.")
     parser.add_argument("--escaneo", action="store_true", help="Detectar dispositivos en la red.")
