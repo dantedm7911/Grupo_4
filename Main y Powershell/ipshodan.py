@@ -18,9 +18,6 @@ def obtener_info_y_guardar(api_key, ip):
             f'Ubicación: {info_ip.get("country_name", "No disponible")}, {info_ip.get("city", "No disponible")}\n'
         )
 
-        # Mostrar el resultado en consola
-        print(result)
-
         # Guardar la información en un archivo txt
         with open("info_ip.txt", "a") as archivo:
             archivo.write(f"{result}\n")
