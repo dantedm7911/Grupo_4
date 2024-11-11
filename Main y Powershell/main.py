@@ -47,7 +47,7 @@ def main():
     parser.add_argument("--proceso", action="store_true", help="Busca los procesos con mas recursos usados.")
 
     # Argumentos para Python      
-    parser.add_argument("--password", action="store_true", help="Ejecuta un Generador de Contraseñas.")
+    parser.add_argument("--password", type=int, metavar="LONGITUD", help="Genera una contraseña de la longitud especificada.")
     parser.add_argument("--ipshodan", nargs=2, metavar=("APIKEY", "IP"), help="Escanea informacion de una IP mediante Api shodan Con parametros APIKEY e IP.")
     parser.add_argument("--malware", action="store_true", help="Escanea un directorio en busca de malware.")
     parser.add_argument("--abuse", action="store_true", help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse.")
@@ -92,8 +92,9 @@ def main():
 
     # Verificar las opciones seleccionadas para Python  
     if args.password:
+        longitud = args.password
         print("Generando contraseña...")
-        ejecutar_comando_python("python/password.py")
+        ejecutar_comando_python("python/password.py", str(longitud))
     
     if args.ipshodan:
         apikey, ip =args.ipshodan
