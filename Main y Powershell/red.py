@@ -13,9 +13,7 @@ def analizar_trafico_red_y_guardar(packet_count):
     
     # Imprimir y devolver los resultados
     if results:
-        print("\nResultados del análisis de tráfico de red:")
-        for result in results:
-            print(result)  # Imprime el resultado para el usuario
+        print("\Resultados generados")  
 
         # Guardar los resultados en un archivo txt
         with open("trafico_red_output.txt", "a") as archivo:
