@@ -48,7 +48,7 @@ def main():
 
     # Argumentos para Python      
     parser.add_argument("--password", action="store_true", help="Ejecuta un Generador de Contraseñas.")
-    parser.add_argument("--ipshodan", action="store_true", help="Escanea informacion de una IP mediante Api shodan.")
+    parser.add_argument("--ipshodan", nargs=2, metavar=("APIKEY", "IP"), help="Escanea informacion de una IP mediante Api shodan Con parametros APIKEY e IP.")
     parser.add_argument("--malware", action="store_true", help="Escanea un directorio en busca de malware.")
     parser.add_argument("--abuse", action="store_true", help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse.")
     parser.add_argument("--red", action="store_true", help="Permite monitorear en Tiempo Real el trafico de tu red.")
@@ -96,8 +96,9 @@ def main():
         ejecutar_comando_python("python/password.py")
     
     if args.ipshodan:
+        apikey, ip =args.ipshodan
         print("Escaneando IP con shodan...")
-        ejecutar_comando_python("python/ipshodan.py")
+        ejecutar_comando_python("python/ipshodan.py", apikey, ip)
     
     if args.malware:
         print("Escaneando malware...")
