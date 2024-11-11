@@ -1,17 +1,17 @@
 <#
 .SYNOPSIS
-Muestra los procesos que están utilizando más memoria.
+Muestra los procesos que estÃ¡n utilizando mÃ¡s memoria.
 
 .DESCRIPTION
-La función `TopProcess` obtiene la lista de todos los procesos en ejecución, los ordena por el uso de memoria (Working Set) y selecciona los procesos que están utilizando más memoria.
+La funciÃ³n `TopProcess` obtiene la lista de todos los procesos en ejecuciÃ³n, los ordena por el uso de memoria (Working Set) y selecciona los procesos que estÃ¡n utilizando mÃ¡s memoria.
 
 .EXAMPLE
 TopProcess -Count 5
-Muestra los 5 procesos que están utilizando más memoria en el sistema.
+Muestra los 5 procesos que estÃ¡n utilizando mÃ¡s memoria en el sistema.
 
 .NOTES
- -La función utiliza el cmdlet `Get-Process` para obtener los procesos que se estan ejecutando
- -Ordena los procesos por la memoria física utilizada (`WS` o Working Set)
+ -La funciÃ³n utiliza el cmdlet `Get-Process` para obtener los procesos que se estan ejecutando
+ -Ordena los procesos por la memoria fÃ­sica utilizada (`WS` o Working Set)
  -Selecciona los procesos con mayor uso de memoria.
  -Autor: Jonathan Francisco Vela Guerrero
  -Fecha: 18/09/2024
@@ -28,14 +28,14 @@ function TopProcess {
         $fileName = "$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').txt"
         $filePath = Join-Path -Path $PWD -ChildPath $fileName
 
-        # Guardar la información en el archivo de texto
+        # Guardar la informaciÃ³n en el archivo de texto
         $topProcesses | Out-File -FilePath $filePath -Encoding UTF8
 
-        # Mensaje indicando dónde se guardó el archivo
-        Write-Host "La información de los procesos se guardó en: $filePath"
+        # Mensaje indicando dÃ³nde se guardÃ³ el archivo
+        Write-Host "La informaciÃ³n de los procesos se guardÃ³ en: $filePath"
     }
     catch {
-        Write-Host "Ocurrió un error:" $_.Exception.Message
+        Write-Host "OcurriÃ³ un error:" $_.Exception.Message
     }
 }
 
