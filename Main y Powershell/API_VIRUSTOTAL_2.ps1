@@ -88,10 +88,8 @@ function Api_HashView {
         }
     }
 
-    # Mostrar mensaje indicando dónde se guardó el archivo
     Write-Host "Los resultados se guardaron en: $filePath"
 }
 
-# Llamar a la función
 Api_HashView
 
