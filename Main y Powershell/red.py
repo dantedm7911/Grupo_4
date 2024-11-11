@@ -1,19 +1,9 @@
 from scapy.all import sniff
+import argparse
 
-def analizar_trafico_red_y_guardar():
+def analizar_trafico_red_y_guardar(packet_count):
     results = []
     
-    while True:
-        try:
-            # Define la cantidad de paquetes a capturar
-            packet_count = int(input("¿Cuántas líneas de tráfico deseas imprimir? "))
-            if packet_count <= 0:
-                print("Por favor, introduce un número positivo.")
-                continue  # Volver a preguntar si el número es negativo o cero
-            break  # Salir del bucle si la entrada es válida
-        except ValueError:
-            print("Entrada no válida. Por favor, introduce un número entero.")
-
     def packet_callback(packet):
         results.append(f"Origen: {packet[0][1].src} -> Destino: {packet[0][1].dst}")  # Agrega un resumen del paquete a los resultados
         if len(results) >= packet_count:
@@ -36,5 +26,16 @@ def analizar_trafico_red_y_guardar():
     else:
         print("No se capturaron paquetes.")
 
-# Llamar a la función para ejecutarla
-analizar_trafico_red_y_guardar()
+def main():
+    # Configurar argparse para recibir la cantidad de paquetes como argumento
+    parser = argparse.ArgumentParser(description="Analizar el tráfico de red y guardar los resultados.")
+    parser.add_argument("packet_count", type=int, help="Número de paquetes a capturar.")
+    
+    # Parsear los argumentos
+    args = parser.parse_args()
+
+    # Llamar a la función con el argumento proporcionado
+    analizar_trafico_red_y_guardar(args.packet_count)
+
+if __name__ == "__main__":
+    main()
