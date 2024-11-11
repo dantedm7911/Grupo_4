@@ -50,7 +50,7 @@ def main():
     parser.add_argument("--password", type=int, metavar="LONGITUD", help="Genera una contraseña de la longitud especificada")
     parser.add_argument("--ipshodan", nargs=2, metavar=("APIKEY", "IP"), help="Escanea informacion de una IP mediante Api shodan Con parametros APIKEY e IP.")
     parser.add_argument("--malware", type=str, metavar="DIRECTORY_PATH", help="Escanea un directorio en busca de malware.")
-    parser.add_argument("--abuse", nargs=2, metavar=("APIKEY", "OPCION", "VALOR"), help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse. Uso: --abuse APIKEY OPCION(1=IP, 2=DOMINIO) VALOR")
+    parser.add_argument("--abuse", nargs=3, metavar=("APIKEY", "OPCION", "VALOR"), help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse. Uso: --abuse APIKEY OPCION(1=IP, 2=DOMINIO) VALOR")
     parser.add_argument("--red", type=int, metavar="PACKET_COUNT", help="Permite monitorear en Tiempo Real el trafico de tu red proporcionando el numero de lienas a guardar.")
     
     args = parser.parse_args()
