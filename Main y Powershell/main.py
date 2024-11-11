@@ -51,7 +51,7 @@ def main():
     parser.add_argument("--ipshodan", nargs=2, metavar=("APIKEY", "IP"), help="Escanea informacion de una IP mediante Api shodan Con parametros APIKEY e IP.")
     parser.add_argument("--malware", action="store_true", help="Escanea un directorio en busca de malware.")
     parser.add_argument("--abuse", action="store_true", help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse.")
-    parser.add_argument("--red", action="store_true", help="Permite monitorear en Tiempo Real el trafico de tu red.")
+    parser.add_argument("--red", type=int, metavar="PACKET_COUNT", help="Permite monitorear en Tiempo Real el trafico de tu red proporcionando el numero de lienas a guardar.")
     
     args = parser.parse_args()
     
@@ -110,8 +110,9 @@ def main():
         ejecutar_comando_python("python/abuse.py")
 
     if args.red:
+        packet_count = args.red
         print("Verificando trafico de red en tiempo real...")
-        ejecutar_comando_python("python/red.py")
+        ejecutar_comando_python("python/red.py", str(packet_count))
         
     
    # Mensaje de error si no se seleccionó ninguna opción 
