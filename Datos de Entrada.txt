@@ -1,0 +1,12 @@
+Apikeys:
+
+-Shodan: k7sX1cBbv1PBLDAzHRfMZSpXSxf4kney
+-ApiAbuse: e96cbebe2e2557ccc69efa1ee95599c82aacfba60d8b892aed796262683fb4582393eff1dba6f7e3
+-VirusTotal: 9f65611169a66d27dd54c8efb20b08fa69675d63fa739eb545e2c1755eee3ae0
+
+
+python main.py --malware "/ruta/al/directorio"
+python main.py --red 10
+python main.py --password 12
+python main.py --ipshodan "miAPIkey123" "192.168.1.1"
+python main.py --oculto "C:/Users/josa3/Downloads"
