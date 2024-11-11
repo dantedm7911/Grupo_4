@@ -13,7 +13,6 @@ def generador_contrasena(longitud):
 
         # Generar la contraseña
         contrasena = ''.join(random.choice(caracteres) for _ in range(longitud))
-        print(f"Contraseña generada: {contrasena}")
 
         # Guardar la contraseña en un archivo txt
         with open("contraseñas.txt", "a") as archivo:
