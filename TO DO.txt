@@ -2,14 +2,7 @@ TO DO:
 
 -Mejorar el help para que de mejor info (mencionar parámetros a introducir) 
 
--Analizar variables que pueda introducir desde argparse de bash 
-
--Verificar que Aanateyssi hizo lo suyo 
-
-
 Opcional: 
 
 -Arreglar virustotal
--Arreglar Archivos Ocultos
--Dar dato de entrada en recursos y top process 
 -Analizar datos de entrada de bash para ver cual puedo introducir yo 
