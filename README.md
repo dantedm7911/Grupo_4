@@ -1,8 +1,8 @@
-#Script de Integración para Ciberseguridad
+# Script de Integración para Ciberseguridad
 
-####Este proyecto en Python permite ejecutar scripts de Bash, PowerShell y Python para realizar diversas tareas relacionadas con ciberseguridad. El objetivo es proporcionar una interfaz centralizada para ejecutar análisis de red, detección de malware y más, utilizando diferentes lenguajes y herramientas.
+#### Este proyecto en Python permite ejecutar scripts de Bash, PowerShell y Python para realizar diversas tareas relacionadas con ciberseguridad. El objetivo es proporcionar una interfaz centralizada para ejecutar análisis de red, detección de malware y más, utilizando diferentes lenguajes y herramientas.
 
-##Requisitos
+## Requisitos
 
 Python 3.x
 PowerShell (para ejecutar los scripts de PowerShell)
@@ -10,44 +10,44 @@ Bash (para ejecutar los scripts de Bash)
 Librerías adicionales de Python (dependiendo de los scripts adicionales)
 Instalación
 
-###Clona el repositorio:
+### Clona el repositorio:
 
 git clone <repositorio>
 cd <directorio>
 
-###Asegúrate de tener permisos de ejecución para los scripts de Bash:
+### Asegúrate de tener permisos de ejecución para los scripts de Bash:
 
 chmod +x bash/*.sh
 
-###Para los scripts de PowerShell, permite la ejecución:
+### Para los scripts de PowerShell, permite la ejecución:
 
 powershell
 Copiar código
 Set-ExecutionPolicy Bypass -Scope Process
 
-##Uso
+## Uso
 
 El script principal se ejecuta con Python e incluye varias opciones para ejecutar scripts específicos. Usa el siguiente comando para ver la ayuda:
 
 python main.py --help
 
-##Opciones Disponibles
+## Opciones Disponibles
 
-###Bash
+### Bash
 
 --monitoreo: Inicia el monitoreo del ancho de banda de la red.
 --trafico: Registra el tráfico de red.
 --escaneo: Detecta dispositivos conectados en la red.
 --rendimiento: Analiza el rendimiento de la red.
 
-###PowerShell
+### PowerShell
 
 --hashes: Genera y analiza hashes.
 --oculto <ruta>: Busca archivos ocultos en la ruta especificada.
 --recursos: Registra los recursos del sistema utilizados.
 --proceso: Busca los procesos con más uso de recursos.
 
-###Python
+### Python
 
 --password <longitud>: Genera una contraseña con la longitud especificada.
 --ipshodan <APIKEY> <IP>: Escanea información de una IP usando la API de Shodan.
