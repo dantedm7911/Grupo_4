@@ -10,3 +10,6 @@ python main.py --red 10
 python main.py --password 12
 python main.py --ipshodan "miAPIkey123" "192.168.1.1"
 python main.py --oculto "C:/Users/josa3/Downloads"
+python main.py --abuse e96cbebe2e2557ccc69efa1ee95599c82aacfba60d8b892aed796262683fb4582393eff1dba6f7e3 1 192.168.1.1
+python main.py --abuse e96cbebe2e2557ccc69efa1ee95599c82aacfba60d8b892aed796262683fb4582393eff1dba6f7e3 2 hola.com
+
