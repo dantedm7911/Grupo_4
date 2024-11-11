@@ -19,12 +19,15 @@ def ejecutar_comando_powershell(ps_comando, ruta=None):
     except subprocess.CalledProcessError as e:
         print(f"Error al ejecutar el comando de PowerShell: {e}")
 
-# Función para ejecutar los scripts de Python
-def ejecutar_comando_python(py_comando): #AGREGAR PARAMETROS DE CADA OPCION 
+# Función para ejecutar los scripts de Python con argumentos
+def ejecutar_comando_python(py_comando, *args):
     try:
-        subprocess.run(["python", py_comando], check=True)
+        # Construir el comando incluyendo los argumentos
+        comando = ["python", py_comando] + list(args)
+        subprocess.run(comando, check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error al ejecutar el comando de Python: {e}")
+
 
 
 def main():
