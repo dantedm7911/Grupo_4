@@ -2,7 +2,3 @@ TO DO:
 
 -Mejorar el help para que de mejor info (mencionar parámetros a introducir) 
 
-Opcional: 
-
--Arreglar virustotal
--Analizar datos de entrada de bash para ver cual puedo introducir yo 
