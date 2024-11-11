@@ -31,7 +31,7 @@ def ejecutar_comando_python(py_comando, *args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Scripts en Powerhsell, Bash y Python de analisis de ciberseguridad. Ejemplo de entrada: python main --argumento *parametros*") 
+    parser = argparse.ArgumentParser(description="Scripts en Powerhsell, Bash y Python de analisis de ciberseguridad. Ejemplo de entrada: python main.py --argumento *parametros*") 
     
     # Argumentos para bash
     parser.add_argument("--monitoreo", action="store_true", help="Iniciar monitoreo de ancho de banda.")
