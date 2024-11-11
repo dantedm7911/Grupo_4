@@ -23,7 +23,7 @@
 #>
 
 param (
-    [string]$path  # Definir el parámetro para la ruta
+    [string]$path  # Parametro que viene desde el argparse 
 )
 
 function Get-HiddenFiles {
