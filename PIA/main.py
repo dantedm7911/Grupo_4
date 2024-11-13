@@ -42,16 +42,16 @@ def main():
 
     # Argumentos para PowerShell
     parser.add_argument("--hashes", action="store_true", help="Crea hashes y los analiza.")
-    parser.add_argument("--oculto", type=str, help="Busca archivos ocultos en la ruta especificada.")
+    parser.add_argument("--oculto", type=str, help="Busca archivos ocultos en la ruta especificada. Uso: python main.py --oculto (ruta)")
     parser.add_argument("--recursos", action="store_true", help="Registra los recursos del sistema usados.")
     parser.add_argument("--proceso", action="store_true", help="Busca los procesos con mas recursos usados.")
 
     # Argumentos para Python      
-    parser.add_argument("--password", type=int, metavar="LONGITUD", help="Genera una contraseña de la longitud especificada")
-    parser.add_argument("--ipshodan", nargs=2, metavar=("APIKEY", "IP"), help="Escanea informacion de una IP mediante Api shodan Con parametros APIKEY e IP.")
-    parser.add_argument("--malware", type=str, metavar="DIRECTORY_PATH", help="Escanea un directorio en busca de malware.")
-    parser.add_argument("--abuse", nargs=3, metavar=("APIKEY", "OPCION", "VALOR"), help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse. Uso: --abuse APIKEY OPCION(1=IP, 2=DOMINIO) VALOR")
-    parser.add_argument("--red", type=int, metavar="PACKET_COUNT", help="Permite monitorear en Tiempo Real el trafico de tu red proporcionando el numero de lienas a guardar.")
+    parser.add_argument("--password", type=int, metavar="LONGITUD", help="Genera una contraseña de la longitud especificada. Uso: python main.py --password (numero de caracteres)")
+    parser.add_argument("--ipshodan", nargs=2, metavar=("APIKEY", "IP"), help="Escanea informacion de una IP mediante Api shodan Con parametros APIKEY e IP. Uso: python main.py --ipshodan (apikey) (ip)")
+    parser.add_argument("--malware", type=str, metavar="DIRECTORY_PATH", help="Escanea un directorio en busca de malware. Uso: python main.py --malware (ruta)")
+    parser.add_argument("--abuse", nargs=3, metavar=("APIKEY", "OPCION", "VALOR"), help="Analiza si una IP tiene reportes maliciosos mediante Api Abuse. Uso: python main.py --abuse APIKEY OPCION(1=IP, 2=DOMINIO) VALOR")
+    parser.add_argument("--red", type=int, metavar="PACKET_COUNT", help="Permite monitorear en Tiempo Real el trafico de tu red proporcionando el numero de lienas a guardar. Uso: python main.py --red (numero de lineas a guardar)")
     
     args = parser.parse_args()
     
