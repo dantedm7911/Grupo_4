@@ -53,7 +53,7 @@ function Get-ResourceUsage {
                 throw "No se pudieron obtener los contadores de recursos"
             }
         } catch { 
-            Write-Error "Error al obtener los contadores de recursos: $_"
+            Write-Host "Error al obtener los contadores de recursos: $_"
             Start-Sleep -s 2
             continue
         }
