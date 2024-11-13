@@ -34,7 +34,7 @@ def analizar_ip(api_key, ip_address):
                 file.write(f"Fecha: {date.today()} Hora: {datetime.now().strftime('%H:%M:%S')} \n")
                 file.write("================================\n\n")
 
-            print(f"Informacion guardad exitosamente en el reporte Abuse_API.txt en la carpeta Reportes_de_Consulta_API")
+            print(f"Informacion guardada exitosamente en el reporte Abuse_API.txt en la carpeta Reportes_de_Consulta_API")
             
         except Exception as e:
             print(f"Error al escribir el reporte: {e}")
